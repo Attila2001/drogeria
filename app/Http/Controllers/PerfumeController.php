@@ -3,14 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Perfume;
+use Validator;
 class PerfumeController extends Controller
 {
     public function getPerfumes() {
 
         $perfumes = Perfume::all();
 
-        return view( "/perfumes" );
+        return view( "perfumes",
+        ["perfumes"=>$perfumes]);
     }
 
     public function newPerfume() {
@@ -42,6 +44,10 @@ class PerfumeController extends Controller
 
     public function updatePerfume( Request $request ) {
 
+        $perfume = Perfume::find( $request [" id "]);
+        $perfume->update($request->all() );
+
+        return redirect("perfumes");
     }
 
     public function deletePerfume( $id ) {

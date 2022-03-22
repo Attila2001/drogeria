@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use DB;
 class CreatePerfumesTable extends Migration
 {
     /**
@@ -18,7 +18,7 @@ class CreatePerfumesTable extends Migration
             $table->string( "name" );
             $table->string( "type" );
             $table->integer( "price" );
-            //$table->timestamps();
+
         });
     }
 
